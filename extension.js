@@ -1,3 +1,6 @@
+//resources
+// https://github.com/neumann-d/ShutdownTimer/blob/master/src/extension.js
+
 //imports
 const {Gio, GLib, GObject, St} = imports.gi;
 
