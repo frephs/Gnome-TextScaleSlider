@@ -24,24 +24,48 @@ function getSettings() {
   return new Gio.Settings({ settings_schema : schemaObj });
 }
 
-function init() {
+// function init() {
 
-  let settings = getSettings();
+//   let settings = getSettings();
   
 
-}
+// }
 
-function enable() {	
-    let settings = getSettings();
-    settings.set_double('text-scaling-factor', 1.2);
-    log( "my double:" + settings.get_double('text-scaling-factor').toString() );
+// function enable() {	
+//     let settings = getSettings();
+//     settings.set_double('text-scaling-factor', 1.2);
+//     log( "my double:" + settings.get_double('text-scaling-factor').toString() );
   
+// }
+
+// function disable() {
+//     let settings = getSettings();
+//     settings.set_double('text-scaling-factor', 1.0);
+
+// }
+
+
+class Extension {
+	constructor(uuid) {
+		this._uuid = uuid;
+
+		ExtensionUtils.initTranslations();
+	}
+
+	enable() {
+		lg("start");
+		this._indicator = new Indicator();
+		Main.panel.addToStatusArea(this._uuid, this._indicator);
+	}
+
+	disable() {
+		lg("stop");
+		this._indicator.destroy();
+		this._indicator = null;
+		Main.wm.removeKeybinding("open-last-file-in-termianl");
+	}
 }
 
-function disable() {
-    let settings = getSettings();
-    settings.set_double('text-scaling-factor', 1.0);
-
+function init(meta) {
+	return new Extension(meta.uuid);
 }
-
-
