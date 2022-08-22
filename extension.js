@@ -33,7 +33,7 @@ function _getInitialSliderValue() {
 
 
 function _onSliderChanged() {
-	gnomeSettings.set_double('text-scaling-factor', slider.value);
+	gnomeSettings.set_double('text-scaling-factor', (slider.value + 50) / 100);
 
     // gnomeSettings.set_int('slider-value', (slider.value));
     // const [hours, minutes] = timer.convertTime(_getTimerStartValue())
@@ -50,7 +50,7 @@ function _createSliderItem() {
     let sliderIcon = new St.Icon({  icon_name: 'preferences-system-time-symbolic',  /*TODO: Change icons*/
                                     style_class: 'popup-menu-icon' });
     sliderItem.actor.add(sliderIcon);
-    slider = new Slider.Slider(sliderValue); /*TODO: check arguments */
+    slider = new Slider.Slider(sliderValue * 100 - 50); /*TODO: check arguments */
     slider.connect('notify::value', _onSliderChanged);
     sliderItem.add_actor(slider);
     return sliderItem;
