@@ -95,7 +95,7 @@ function enable() {
 }
 
 function disable() {
-	submenu.destroy(); // destroys switcher and sliderItem as children too
+	sliderItem.destroy(); // destroys switcher and sliderItem as children too
     separator.destroy();
 	gnomeSettings.set_double('text-scaling-factor', 1.0);
 
