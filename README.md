@@ -1,2 +1,2 @@
 # Gnome Text Scale Slider
-Adding a slider to change the text scaling factor on gnome. Tested on version 42
+Gnome Extension. Adds a slider to change the text scaling factor. Tested on version 42
