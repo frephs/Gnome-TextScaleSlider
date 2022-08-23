@@ -68,7 +68,7 @@ function _createSliderItem() {
 
 function render() {
     // submenu in status area menu with slider and toggle button
-    let sliderItem = _createSliderItem();    
+    sliderItem = _createSliderItem();    
     
 
     // add separator line and submenu in status area menu
@@ -95,7 +95,7 @@ function enable() {
 }
 
 function disable() {
-	sliderItem.destroy(); // destroys switcher and sliderItem as children too
+	sliderItem.destroy(); 
     separator.destroy();
 	gnomeSettings.set_double('text-scaling-factor', 1.0);
 
