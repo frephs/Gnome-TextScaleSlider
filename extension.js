@@ -55,12 +55,13 @@ function _onSettingsChanged(){
 function _createSliderItem() {
     let sliderValue =  _getInitialSliderValue()
     let sliderItem = new PopupMenu.PopupMenuItem('');
-    let sliderIcon = new St.Icon({  icon_name: 'preferences-system-time-symbolic',  /*TODO: Change icons*/
+    let sliderIcon = new St.Icon({  icon_name: 'view-continuous-symbolic',  /*TODO: Change icons*/
                                     style_class: 'popup-menu-icon' });
     sliderItem.actor.add(sliderIcon);
-    slider = new Slider.Slider(sliderValue * 100 - 50); /*TODO: check arguments */
+    slider = new Slider.Slider(0); /*TODO: check arguments */
     slider.connect('notify::value', _onSliderChanged);
     sliderItem.add_actor(slider);
+    slider.value = 0.50;
     return sliderItem;
 }
 
@@ -68,15 +69,13 @@ function _createSliderItem() {
 function render() {
     // submenu in status area menu with slider and toggle button
     let sliderItem = _createSliderItem();    
-    submenu = new PopupMenu.PopupSubMenuMenuItem(_("Text Scaling Factor"), true);
-    submenu.icon.icon_name = 'system-shutdown-symbolic';
-    submenu.menu.addMenuItem(sliderItem);
+    
 
     // add separator line and submenu in status area menu
     separator = new PopupMenu.PopupSeparatorMenuItem();
     let statusMenu = Main.panel.statusArea['aggregateMenu'];
     statusMenu.menu.addMenuItem(separator);
-    statusMenu.menu.addMenuItem(submenu);
+    statusMenu.menu.addMenuItem(sliderItem);
 }
 
 
