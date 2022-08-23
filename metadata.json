@@ -1,6 +1,6 @@
 {
-  "name": "FontScaleSlider",
-  "description": "Add a font scale slider to the settings panel",
+  "name": "TextScaleSlider",
+  "description": "Add a text scale slider to the settings panel",
   "uuid": "ffrancescogenovese@gmail.com",
   "url": "https://github.com/frephs/FontScaleSlider",
   "session-modes": ["user", "unlock-dialog"],
