@@ -36,8 +36,8 @@ function _getInitialSliderValue() {
 
 
 function _onSliderChanged() {
-	gnomeSettings.set_double('text-scaling-factor', (slider.value / 100);
-
+	gnomeSettings.set_double('text-scaling-factor', (slider.value +0.5));
+    log("onSliderChanged: " + slider.value)
     // gnomeSettings.set_int('slider-value', (slider.value));
     // const [hours, minutes] = timer.convertTime(_getTimerStartValue())
     // switcher.label.text = hours + ' ' +_("h : ") + minutes + ' min';
@@ -45,6 +45,11 @@ function _onSliderChanged() {
     // if (settings.get_boolean('root-mode-value')) {
     //     switcher.label.text = hours + ' ' +_("h : ") + minutes + ' min (root)'; 
     // }
+}
+
+function _onSettingsChanged(){
+    gnomeSettings.set_double('text-scaling-factor', 1.0);
+    return true;
 }
 
 function _createSliderItem() {
@@ -58,6 +63,7 @@ function _createSliderItem() {
     sliderItem.add_actor(slider);
     return sliderItem;
 }
+
 
 function render() {
     // submenu in status area menu with slider and toggle button
@@ -74,10 +80,7 @@ function render() {
 }
 
 
-function _onSettingsChanged(){
-    let sliderValue =  gnomeSettings.get_double('text-scaling-factor') * 100.0;
-    slider.value = sliderValue;
-}
+
 
 
 function init() {
