@@ -73,6 +73,7 @@ function render() {
     statusMenu.menu.addMenuItem(submenu);
 }
 
+
 function _onSettingsChanged(){
     let sliderValue =  gnomeSettings.get_double('text-scaling-factor') * 100.0;
     slider.value = sliderValue;
