@@ -1,11 +1,13 @@
 {
   "name": "TextScaleSlider",
   "description": "Add a text scale slider to the settings panel",
-  "uuid": "ffrancescogenovese@gmail.com",
+  "uuid": "Gnome-TextScaleSlider@francescogenovese.gmail.com",
   "url": "https://github.com/frephs/FontScaleSlider",
-  "session-modes": ["user", "unlock-dialog"],
+  "session-modes": [
+    "user",
+    "unlock-dialog"
+  ],
   "shell-version": [
     "42"
   ]
-
 }
